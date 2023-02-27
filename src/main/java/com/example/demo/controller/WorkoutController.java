@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/workout")
+@RequestMapping("api/v1/workout")
 public class WorkoutController {
 
     @Autowired
     private WorkoutService workoutService;
 
-    @PostMapping("/")
-    public void add(@RequestBody Workout workout) {
-        workoutService.saveWorkout(workout);
+    @PostMapping()
+    public Workout add(@RequestBody Workout workout) {
+        return workoutService.saveWorkout(workout);
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public List<Workout> findAll() {
         return workoutService.findWorkouts();
     }

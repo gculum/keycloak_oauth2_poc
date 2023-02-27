@@ -14,9 +14,9 @@ public class WorkoutService {
     @Autowired
     private WorkoutRepository workoutRepository;
 
-    @PreAuthorize("#workout.user == authentication.name and #oauth2.hasScope('fitnessapp')")
-    public void saveWorkout(Workout workout) {
-        workoutRepository.save(workout);
+    @PreAuthorize("#workout.user == authentication.name and hasAuthority('SCOPE_fitnessapp')")
+    public Workout saveWorkout(Workout workout) {
+        return workoutRepository.save(workout);
     }
 
     public List<Workout> findWorkouts() {

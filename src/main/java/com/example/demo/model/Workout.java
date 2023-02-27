@@ -2,10 +2,14 @@ package com.example.demo.model;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
 public class Workout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,5 +25,4 @@ public class Workout {
     private LocalDateTime end;
 
     private int difficulty;
-// Omitted getter and setters
 }
