@@ -10,4 +10,5 @@ public interface WorkoutRepository extends JpaRepository<Workout, Integer> {
 
     @Query("SELECT w FROM Workout w WHERE w.user = ?#{authentication.name}")
     List<Workout> findAllByUser();
+
 }
